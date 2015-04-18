@@ -2,7 +2,6 @@ package edu.washington.ruokua.lifecounter;
 
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -89,7 +88,7 @@ public class MainActivity extends ActionBarActivity {
             leftPlayerCapacity -= 1;
             LinearLayout parent = (LinearLayout) v.getParent();
             String playerName = "player" + (MAX_CAPACITY - leftPlayerCapacity);
-            Log.i("X", playerName);
+
             int viewStubIntID = parent.getResources().getIdentifier(playerName, "id", getPackageName());
 
             //find viewstub to inflate
@@ -105,6 +104,8 @@ public class MainActivity extends ActionBarActivity {
             healthView.setText("" + DEFAULT_LIFE);
         }
     }
+
+
 
 
     @Override
