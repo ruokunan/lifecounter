@@ -26,7 +26,8 @@
 
     <Button
         android:tag="add_one"
-        android:onClick="change_life_point"
+        android:id="@+id/add"
+        android:onClick="changeLifePoint"
         android:layout_width="0px"
         android:layout_height="wrap_content"
         android:layout_weight="1"
@@ -34,7 +35,9 @@
 
     <Button
         android:tag="subtract_one"
-        android:onClick="change_life_point"
+        android:id="@+id/subtract"
+
+        android:onClick="changeLifePoint"
         android:layout_width="0px"
         android:layout_height="wrap_content"
         android:layout_weight="1"
@@ -42,7 +45,9 @@
 
     <Button
         android:tag="add_five"
-        android:onClick="change_life_point"
+        android:id="@+id/add_five"
+
+        android:onClick="changeLifePoint"
         android:layout_width="0px"
         android:layout_height="wrap_content"
         android:layout_weight="1"
@@ -50,7 +55,9 @@
 
     <Button
         android:tag="subtract_five"
-        android:onClick="change_life_point"
+        android:id="@+id/subtract_five"
+
+        android:onClick="changeLifePoint"
         android:layout_width="0px"
         android:layout_height="wrap_content"
         android:layout_weight="1"
