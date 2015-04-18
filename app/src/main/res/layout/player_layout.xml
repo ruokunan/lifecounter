@@ -16,13 +16,13 @@
         android:id="@+id/player_name"
         android:layout_width="wrap_content"
         android:layout_height="30dp"
-        android:text="@string/player_name" />
+     />
 
     <TextView
         android:id="@+id/player_life"
         android:layout_width="wrap_content"
         android:layout_height="30dp"
-        android:text="   20   " />
+     />
 
     <Button
         android:tag="add_one"

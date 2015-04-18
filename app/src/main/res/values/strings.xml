@@ -7,7 +7,8 @@
     <string name="add_five">+5</string>
     <string name="subtract_five">-5</string>
     <string name="add_more_player">add player</string>
-    <string name="player_name">Player </string>
+    <string name="player_name">Player</string>
 
+    <string name="player_life">20</string>
 
 </resources>
