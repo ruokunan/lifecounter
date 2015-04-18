@@ -6,6 +6,7 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewStub;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -14,6 +15,8 @@ import android.widget.TextView;
 public class MainActivity extends ActionBarActivity {
     public final int DEFAULT_NUM_PLAYER = 2;
     public final int DEFAULT_LIFE = 20;
+    public final int MAX_CAPACITY = 8;
+    public int leftPlayerCapacity = MAX_CAPACITY - DEFAULT_NUM_PLAYER;
 
 
     @Override
@@ -60,13 +63,11 @@ public class MainActivity extends ActionBarActivity {
 
 
         if(currHealth <= 0) {
-            Log.i("s", "Fuckyou");
 
             LinearLayout playGround = (LinearLayout)player.getParent();
             TextView loseMessage = new TextView(this);
 
-            loseMessage.setText("PLAYER " + player.getTag().toString() + " " + "LOSES");
-            
+            loseMessage.setText("Player " + player.getTag().toString() + " " + "LOSES");
             Button add = (Button) player.findViewById(R.id.add);
             add.setEnabled(false);
             Button subtract = (Button)player.findViewById(R.id.subtract);
@@ -78,9 +79,33 @@ public class MainActivity extends ActionBarActivity {
 
             playGround.addView(loseMessage);
 
+
         }
         health.setText("" + currHealth);
     }
+
+    public void addPlayer(View v) {
+        if (leftPlayerCapacity > 0) {
+            leftPlayerCapacity -= 1;
+            LinearLayout parent = (LinearLayout) v.getParent();
+            String playerName = "player" + (MAX_CAPACITY - leftPlayerCapacity);
+            Log.i("X", playerName);
+            int viewStubIntID = parent.getResources().getIdentifier(playerName, "id", getPackageName());
+
+            //find viewstub to inflate
+            ViewStub stub = (ViewStub) parent.findViewById(viewStubIntID);
+            LinearLayout newPlayer = (LinearLayout) stub.inflate();
+            newPlayer.setTag(MAX_CAPACITY - leftPlayerCapacity);
+            //Set new player name
+            TextView nameView = (TextView) newPlayer.findViewById(R.id.player_name);
+            nameView.setText(playerName + ": " );
+
+            //Set new player health
+            TextView healthView = (TextView) newPlayer.findViewById(R.id.player_life);
+            healthView.setText("" + DEFAULT_LIFE);
+        }
+    }
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

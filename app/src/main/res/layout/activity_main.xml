@@ -45,7 +45,7 @@
 
         <Button
             android:id="@+id/btn_add_player"
-
+            android:onClick="addPlayer"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:background="#41924B"
@@ -85,6 +85,40 @@
 
         <ViewStub android:id="@+id/player3"
             android:inflatedId="@+id/player3"
+            android:layout="@layout/player_layout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+
+        <ViewStub android:id="@+id/player4"
+            android:inflatedId="@+id/player4"
+            android:layout="@layout/player_layout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+
+        <ViewStub android:id="@+id/player5"
+            android:inflatedId="@+id/player5"
+            android:layout="@layout/player_layout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+
+        <ViewStub android:id="@+id/player6"
+            android:inflatedId="@+id/player6"
+            android:layout="@layout/player_layout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+
+        <ViewStub android:id="@+id/player7"
+            android:inflatedId="@+id/player7"
+            android:layout="@layout/player_layout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <ViewStub android:id="@+id/player8"
+            android:inflatedId="@+id/player8"
             android:layout="@layout/player_layout"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
