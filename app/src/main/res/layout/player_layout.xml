@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_horizontal_margin"
+    android:weightSum="4"
+    tools:context=".MainActivity">
+
+
+    <TextView
+        android:id="@+id/player_name"
+        android:layout_width="wrap_content"
+        android:layout_height="30dp"
+        android:text="@string/player_name" />
+
+    <TextView
+        android:id="@+id/player_life"
+        android:layout_width="wrap_content"
+        android:layout_height="30dp"
+        android:text="   20   " />
+
+    <Button
+        android:tag="add_one"
+        android:onClick="change_life_point"
+        android:layout_width="0px"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:text="@string/add" />
+
+    <Button
+        android:tag="subtract_one"
+        android:onClick="change_life_point"
+        android:layout_width="0px"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:text="@string/subtract" />
+
+    <Button
+        android:tag="add_five"
+        android:onClick="change_life_point"
+        android:layout_width="0px"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:text="@string/add_five" />
+
+    <Button
+        android:tag="subtract_five"
+        android:onClick="change_life_point"
+        android:layout_width="0px"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:text="@string/subtract_five" />
+
+
+</LinearLayout>

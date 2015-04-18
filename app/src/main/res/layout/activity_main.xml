@@ -2,7 +2,6 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-
     android:fillViewport="true">
 
 
@@ -76,62 +75,9 @@
 
         </LinearLayout>
 
-        <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-            xmlns:tools="http://schemas.android.com/tools"
-            android:layout_width="wrap_content"
 
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:paddingLeft="@dimen/activity_horizontal_margin"
-            android:paddingRight="@dimen/activity_horizontal_margin"
-            android:paddingTop="@dimen/activity_horizontal_margin"
-            android:weightSum="4"
-            tools:context=".MainActivity">
-
-
-            <TextView
-                android:id="@+id/player_1"
-                android:layout_width="wrap_content"
-                android:layout_height="30dp"
-                android:text="PLAYER 1:" />
-
-            <TextView
-                android:id="@+id/life_left_1"
-                android:layout_width="wrap_content"
-                android:layout_height="30dp"
-                android:text="   20   " />
-
-            <Button
-                android:id="@+id/btn_add_1"
-                android:layout_width="0px"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="@string/add" />
-
-            <Button
-                android:id="@+id/btn_subtract_1"
-                android:layout_width="0px"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="@string/subtract" />
-
-            <Button
-                android:id="@+id/btn_add_five_1"
-                android:layout_width="0px"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="@string/add_five" />
-
-            <Button
-                android:id="@+id/btn_subtract_five_1"
-                android:layout_width="0px"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="@string/subtract_five" />
-
-
-        </LinearLayout>
-
+        <include android:id="@+id/player1"
+            layout="@layout/player_layout" />
 
         <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
             xmlns:tools="http://schemas.android.com/tools"
@@ -142,6 +88,7 @@
             android:paddingRight="@dimen/activity_horizontal_margin"
             android:weightSum="4"
             tools:context=".MainActivity">
+
 
 
             <TextView
