@@ -40,8 +40,6 @@ public class MainActivity extends ActionBarActivity {
 
             }
 
-        } else {
-            onRestoreInstanceState(savedInstanceState);
         }
     }
 
@@ -117,6 +115,8 @@ public class MainActivity extends ActionBarActivity {
     protected void onSaveInstanceState(Bundle saveInstanceState) {
         super.onSaveInstanceState(saveInstanceState);
         saveInstanceState.putInt("playResume", MAX_CAPACITY - leftPlayerCapacity);
+        saveInstanceState.putInt("left", leftPlayerCapacity);
+
         saveInstanceState.putBoolean("gameBegin", gameBegin);
         for (int i = 0; i < MAX_CAPACITY - leftPlayerCapacity; i++) {
             String playerName = "player" + (i + 1);
@@ -136,35 +136,37 @@ public class MainActivity extends ActionBarActivity {
     @Override
     protected void onRestoreInstanceState(Bundle savedInstanceState) {
         super.onRestoreInstanceState(savedInstanceState);
-        gameBegin = savedInstanceState.getBoolean("gameBegin");
-        for (int i = 0; i < savedInstanceState.getInt("playResume"); i++) {
+        leftPlayerCapacity = savedInstanceState.getInt("left");
+        for (int i = 0; i <MAX_CAPACITY - leftPlayerCapacity; i++) {
+            String playerName = "player" + (i + 1);
+            LinearLayout layout = null;
             if (i + 1> 2 ) {
                 View parent = (View) findViewById(R.id.btn_add_player).getParent();
-                String playerName = "player" + (i + 1);
                 int viewStubIntID = parent.getResources().getIdentifier(playerName, "id", getPackageName());
                 ViewStub stub = (ViewStub) parent.findViewById(viewStubIntID);
-                stub.inflate();
+                layout = (LinearLayout) stub.inflate();
+            } else {
+                int playerLayoutID = getResources().getIdentifier(playerName, "id", getPackageName()); //Int ID of player table
+                layout = (LinearLayout) findViewById(playerLayoutID);
             }
-
-            String playerName = "player" + (i + 1);
-            int playerLayoutID = getResources().getIdentifier(playerName, "id", getPackageName()); //Int ID of player table
-            LinearLayout layout = (LinearLayout) findViewById(playerLayoutID);
 
             TextView nameView = (TextView) layout.findViewById(R.id.player_name);
             nameView.setText(playerName + ": ");
 
             TextView healthView = (TextView) layout.findViewById(R.id.player_life); //Textview of the health
             healthView.setText("" + savedInstanceState.getInt(playerName));
-            int currHealth = savedInstanceState.getInt(playerName);
+
             layout.setTag(i + 1);
 
 
+            int currHealth = savedInstanceState.getInt(playerName);
             if (currHealth <= 0) {
 
                 LinearLayout playGround = (LinearLayout) layout.getParent();
                 TextView loseMessage = new TextView(this);
-
                 loseMessage.setText("Player " + layout.getTag().toString() + " " + "LOSES");
+                playGround.addView(loseMessage);
+
                 Button add = (Button) layout.findViewById(R.id.add);
                 add.setEnabled(false);
                 Button subtract = (Button) layout.findViewById(R.id.subtract);
@@ -175,13 +177,13 @@ public class MainActivity extends ActionBarActivity {
                 addFive.setEnabled(false);
 
 
-                playGround.addView(loseMessage);
-
 
             }
 
         }
     }
+
+
 
 
     @Override
