@@ -40,6 +40,8 @@ public class MainActivity extends ActionBarActivity {
 
             }
 
+        } else {
+            onRestoreInstanceState(savedInstanceState);
         }
     }
 
@@ -115,6 +117,7 @@ public class MainActivity extends ActionBarActivity {
     protected void onSaveInstanceState(Bundle saveInstanceState) {
         super.onSaveInstanceState(saveInstanceState);
         saveInstanceState.putInt("playResume", MAX_CAPACITY - leftPlayerCapacity);
+        saveInstanceState.putBoolean("gameBegin", gameBegin);
         for (int i = 0; i < MAX_CAPACITY - leftPlayerCapacity; i++) {
             String playerName = "player" + (i + 1);
             int playerLayoutID = getResources().getIdentifier(playerName, "id", getPackageName());
@@ -127,10 +130,13 @@ public class MainActivity extends ActionBarActivity {
     }
 
 
+
+
+
     @Override
     protected void onRestoreInstanceState(Bundle savedInstanceState) {
         super.onRestoreInstanceState(savedInstanceState);
-
+        gameBegin = savedInstanceState.getBoolean("gameBegin");
         for (int i = 0; i < savedInstanceState.getInt("playResume"); i++) {
             if (i + 1> 2 ) {
                 View parent = (View) findViewById(R.id.btn_add_player).getParent();
