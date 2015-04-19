@@ -137,6 +137,7 @@ public class MainActivity extends ActionBarActivity {
     protected void onRestoreInstanceState(Bundle savedInstanceState) {
         super.onRestoreInstanceState(savedInstanceState);
         leftPlayerCapacity = savedInstanceState.getInt("left");
+        gameBegin = savedInstanceState.getBoolean("gameBegin");
         for (int i = 0; i <MAX_CAPACITY - leftPlayerCapacity; i++) {
             String playerName = "player" + (i + 1);
             LinearLayout layout = null;
